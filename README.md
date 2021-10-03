@@ -118,3 +118,7 @@ server {
     ssl_certificate_key /path/to/ssl/example.com.key;
 }
 ```
+
+## Final step
+
+Repeat steps 4, 5 and 6 for more servers that use the same certificate authority CA.
