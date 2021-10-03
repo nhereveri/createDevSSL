@@ -8,9 +8,9 @@ Create SSL certificates to **use in development only**.
 
 `~/createDevSSL` directory used in the following executions.
 
-```bash
-git clone https://github.com/nhereveri/createDevSSL.git ~/createDevSSL
-cd ~/createDevSSL
+```cmd
+$ git clone https://github.com/nhereveri/createDevSSL.git ~/createDevSSL
+$ cd ~/createDevSSL
 ```
 
 ## Step 1: Edit default values
@@ -29,37 +29,37 @@ emailAddress_default            = nelson@hereveri.cl
 
 Insert request fields.
 
-```bash
-bash createCA.sh
+```cmd
+$ bash createCA.sh
 ```
 
 ## Step 3: Adding trusted certificate to the server
 
 ### MacOS
-```bash
-security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/ca.cert.pem
+```cmd
+$ security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/ca.cert.pem
 ```
 
 ### CentOS like
 
-```bash
-yum install ca-certificates
-update-ca-trust force-enable
-cp certs/ca.cert.pem /etc/pki/ca-trust/source/anchors/
-update-ca-trust extract
+```cmd
+$ yum install ca-certificates
+$ update-ca-trust force-enable
+$ cp certs/ca.cert.pem /etc/pki/ca-trust/source/anchors/
+$ update-ca-trust extract
 ```
 
 ### Debian like
 
-```bash
-cp certs/ca.cert.pem /usr/local/share/ca-certificates/
-update-ca-certificates
+```cmd
+$ cp certs/ca.cert.pem /usr/local/share/ca-certificates/
+$ update-ca-certificates
 ```
 
 ### Windows like
 
-```bat
-certutil -addstore -f "ROOT" certs\ca.cert.pem
+```cmd
+C:\> certutil -addstore -f "ROOT" certs\ca.cert.pem
 ```
 
 ### Mobile testing
@@ -76,16 +76,15 @@ Use script `createServer.sh` to create each certificate. Use list of one or more
 
 `localhost` domain and `127.0.0.1` IP are both included in all certificate by default.
 
-```bash
-bash createServer.sh example.com admin.example.com www.example.com
+```cmd
+$ bash createServer.sh example.com admin.example.com www.example.com
 ```
 
 ## Step 5: Adding certificate to your server
 
-```bash
-# or some directory to save this files
-cd /path/to/ssl/
-tar zxvf ~/createDevSSL/example.com.tgz
+```cmd
+$ cd /path/to/ssl/
+$ tar zxvf ~/createDevSSL/example.com.tgz
 ```
 
 ## Step 6: Edit server config
