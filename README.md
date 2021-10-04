@@ -41,7 +41,7 @@ Insert request fields.
 $ bash createCA.sh
 ```
 
-## Step 3: Adding trusted certificate to the server
+## Step 3: Adding trusted certificate to a client
 
 ### MacOS
 ```cmd
@@ -78,7 +78,7 @@ Later you can publish, via HTTP, the CA certificate created (`certs\ca.cert.pem`
 
 Some web browsers use their own list of CA certificate authorities ignoring those indicated in the OS. In them it is necessary to load these certificates (`certs\ca.cert.pem`) manually. Generally this option is available in the Security section.
 
-## Step 4: Create server certificate
+## Step 4: Create service SSL certificate
 
 Use script `createServer.sh` to create each certificate. Use list of one or more domains as parameters.
 
@@ -88,14 +88,14 @@ Use script `createServer.sh` to create each certificate. Use list of one or more
 $ bash createServer.sh example.com admin.example.com www.example.com
 ```
 
-## Step 5: Adding certificate to your server
+## Step 5: Adding SSL certificate to your server
 
 ```cmd
 $ cd /path/to/ssl/
 $ tar zxvf ~/createDevSSL/example.com.tgz
 ```
 
-## Step 6: Edit server config
+## Step 6: Edit HTTP service config
 
 ### Apache
 
