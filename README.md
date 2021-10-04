@@ -25,6 +25,10 @@ localityName_default            = Concepcion
 emailAddress_default            = nelson@hereveri.cl
 ```
 
+<p style="position:relative;padding: 1rem;margin-bottom: 1rem;border:1px solid transparent;border-radius:0.25rem;color: #842029;background-color: #f8d7da;border-color: #f5c2c7;">
+Always review executable code from a shell. Also always evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
+</p>
+
 ## Step 2: Create certification authority (CA)
 
 Insert request fields.
