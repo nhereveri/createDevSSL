@@ -2,6 +2,14 @@
 
 Create SSL certificates to **use in development only**.
 
+- [x] create and install CA certificate
+- [x] create one or more SSL certificates for HTTP services
+- [x] Use in development enviroment
+- [x] Share CA certificates in clients
+- [ ] ~~Use in production~~
+
+**Always review any shell executable code**. Also always evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
+
 ![Working SSL certificate](screenshot.png)
 
 ## Step 0: Clone repo
@@ -24,10 +32,6 @@ localityName_default            = Concepcion
 0.organizationName_default      = Midori Ltda.
 emailAddress_default            = nelson@hereveri.cl
 ```
-
-<p style="position:relative;padding: 1rem;margin-bottom: 1rem;border:1px solid transparent;border-radius:0.25rem;color: #842029;background-color: #f8d7da;border-color: #f5c2c7;">
-Always review executable code from a shell. Also always evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
-</p>
 
 ## Step 2: Create certification authority (CA)
 
