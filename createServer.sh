@@ -19,7 +19,7 @@ done
 mkdir -p certs crl newcerts private csr
 openssl genrsa -out "private/${1}.key.pem" 2048
 openssl req -config config.cnf -key "private/${1}.key.pem" -new -sha256 -out "csr/${1}.csr.pem"
-openssl ca -config config.cnf -extensions server_cert -days 1000 -notext -md sha256 -in "csr/${1}.csr.pem" -out "certs/${1}.cert.pem"
+openssl ca -config config.cnf -extensions server_cert -days 300 -notext -md sha256 -in "csr/${1}.csr.pem" -out "certs/${1}.cert.pem"
 openssl x509 -noout -text -in "certs/${1}.cert.pem"
 openssl verify -CAfile certs/ca.cert.pem "certs/${1}.cert.pem"
 cp "certs/${1}.cert.pem" "${1}.crt"

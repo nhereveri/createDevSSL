@@ -1,6 +1,6 @@
 # Create development SSL certificates
 
-Create SSL certificates to **use in development only**.
+Create SSL certificates to **use in development only**. 
 
 - [x] create and install CA certificate
 - [x] create one or more SSL certificates for HTTP services
@@ -8,9 +8,11 @@ Create SSL certificates to **use in development only**.
 - [x] Share CA certificates in clients
 - [ ] ~~Use in production~~
 
+![Working SSL certificate](screenshot.png)
+
 **Always review any shell executable code**. Also always evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
 
-![Working SSL certificate](screenshot.png)
+Whenever possible try to use the [Let’s Encrypt](https://letsencrypt.org) service that you can easily implement through [Certbot](https://certbot.eff.org).
 
 ## Step 0: Clone repo
 
@@ -128,4 +130,8 @@ server {
 
 ## Final step
 
-Repeat steps 4, 5 and 6 for more servers that use the same certificate authority CA.
+Repeat steps 4, 5 and 6 for more services that use the same certificate authority CA.
+
+## SSL config
+
+Stay tuned for the security recommendations for the use of certificates and encryption. As a recommendation visit [SSL Configuration Generator](https://ssl-config.mozilla.org) to obtain appropriate configuration parameters.
