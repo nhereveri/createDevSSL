@@ -1,6 +1,6 @@
 # Create development SSL certificates
 
-Create SSL certificates to **use in development only**. 
+Create self-signed SSL certificates to **use in development only**. 
 
 - [x] create and install CA certificate
 - [x] create one or more SSL certificates for HTTP services
@@ -10,7 +10,7 @@ Create SSL certificates to **use in development only**.
 
 ![Working SSL certificate](screenshot.png)
 
-**Always review any shell executable code**. Also always evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
+**Always review any shell executable code**. Also evaluate the parameters used to create any SSL certificate. However, this software does not generate certificates in a way that allows them to be used in public production.
 
 Whenever possible try to use the [Let’s Encrypt](https://letsencrypt.org) service that you can easily implement through [Certbot](https://certbot.eff.org).
 
@@ -25,7 +25,7 @@ $ cd ~/createDevSSL
 
 ## Step 1: Edit default values
 
-Check openssl config and edit default values in file `config.template`:
+**Check openssl config** and edit default values in file `config.template`:
 
 ```ini
 countryName_default             = CL
@@ -37,11 +37,11 @@ emailAddress_default            = nelson@hereveri.cl
 
 ## Step 2: Create certification authority (CA)
 
-Insert request fields.
-
 ```cmd
 $ bash createCA.sh
 ```
+
+Some interactive commands are executed.
 
 ## Step 3: Adding trusted certificate to a client
 
@@ -76,9 +76,27 @@ C:\> certutil -addstore -f "ROOT" certs\ca.cert.pem
 
 Later you can publish, via HTTP, the CA certificate created (`certs\ca.cert.pem`) and download it to your test devices. Depending on the OS you will be asked to trust this certificate.
 
+#### iOS
+
+![iOS Install](ios_01.png)
+
+![iOS Installed](ios_02.png)
+
+#### Android
+
+![Android Install](android_01.png)
+
+![Android Installed](android_02.png)
+
 ### Browser testing
 
 Some web browsers use their own list of CA certificate authorities ignoring those indicated in the OS. In them it is necessary to load these certificates (`certs\ca.cert.pem`) manually. Generally this option is available in the Security section.
+
+#### Firefox
+
+![Firefox Install](firefox_01.png)
+
+![Firefox Installed](firefox_02.png)
 
 ## Step 4: Create service SSL certificate
 
