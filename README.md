@@ -82,6 +82,8 @@ Later you can publish, via HTTP, the CA certificate created (`certs\ca.cert.pem`
 
 ![iOS Installed](ios_02.png)
 
+![iOS General > About > Certificate trust settings](ios15.png)
+
 #### Android
 
 ![Android Install](android_01.png)
