@@ -35,6 +35,7 @@ Use this lines in your apache config:
 <VirtualHost *:80>
     ServerName ${1}
     RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/\.well\-known/acme\-challenge/
     RewriteRule ^(.*)\$ https://%{HTTP_HOST}\$1 [R=301,L]
 </VirtualHost>
 
@@ -53,9 +54,8 @@ Use this lines in your apache config:
     Header always set Strict-Transport-Security "max-age=63072000"
 </VirtualHost>
 
-# intermediate configuration
-SSLProtocol             all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
-SSLCipherSuite          ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+# Modern configuration
+SSLProtocol             all -SSLv3 -TLSv1 -TLSv1.1 -TLSv1.2
 SSLHonorCipherOrder     off
 SSLSessionTickets       off
 
